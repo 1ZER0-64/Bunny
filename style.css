@@ -1,0 +1,452 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:'Segoe UI',sans-serif;
+
+    background:linear-gradient(
+        135deg,
+        #ffd9ea,
+        #f3e4c8,
+        #314a73
+    );
+
+    color:#fff7f0;
+}
+
+/* ==========================
+   CANVAS
+========================== */
+
+#particleCanvas{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:1;
+}
+
+/* ==========================
+   FLOATING HEARTS
+========================== */
+
+#floatingHearts{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:2;
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    font-size:22px;
+    opacity:.8;
+    animation:floatHeart linear forwards;
+}
+
+@keyframes floatHeart{
+
+    from{
+        transform:
+        translateY(0)
+        scale(1);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    to{
+        transform:
+        translateY(-120vh)
+        scale(1.8);
+        opacity:0;
+    }
+
+}
+
+/* ==========================
+   SHARED SECTIONS
+========================== */
+
+section{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:10;
+
+    padding:20px;
+}
+
+.hidden{
+    display:none;
+}
+
+/* ==========================
+   INTRO
+========================== */
+
+.intro-content{
+    text-align:center;
+    max-width:700px;
+}
+
+.intro-content h1{
+    font-size:3rem;
+    margin-bottom:20px;
+
+    color:#fff5fa;
+
+    text-shadow:
+        0 0 10px #ff6fa5,
+        0 0 20px #ff6fa5;
+}
+
+.intro-content p{
+    font-size:1.2rem;
+    margin-bottom:25px;
+
+    color:#fff7f0;
+
+    text-shadow:
+        0 0 8px rgba(0,0,0,.7);
+}
+
+#startBtn{
+    border:none;
+    cursor:pointer;
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    background:#ff8cb8;
+    color:white;
+
+    font-size:1.1rem;
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+#startBtn:hover{
+    transform:scale(1.08);
+}
+
+/* ==========================
+   QUESTIONS
+========================== */
+
+.question-card{
+
+    width:100%;
+    max-width:650px;
+
+    text-align:center;
+}
+
+.question-card h2{
+
+    font-size:2rem;
+    margin-bottom:35px;
+
+    color:#102a4c;
+
+    text-shadow:
+        0 0 10px rgba(0,0,0,.75),
+        0 0 20px rgba(0,0,0,.45);
+}
+
+.optionBtn{
+
+    display:block;
+
+    width:100%;
+
+    margin:12px auto;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    background:
+    rgba(255,255,255,.18);
+
+    color:white;
+
+    transition:.3s;
+}
+
+.optionBtn:hover{
+
+    transform:scale(1.03);
+
+    background:
+    rgba(255,255,255,.28);
+
+}
+
+/* ==========================
+   LOADING
+========================== */
+
+.loading-box{
+
+    text-align:center;
+}
+
+.loading-box h2{
+
+    font-size:2rem;
+
+    color:#fff7f0;
+
+    text-shadow:
+        0 0 10px rgba(0,0,0,.7);
+
+    animation:
+    pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        opacity:.5;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+}
+
+/* ==========================
+   MESSAGE
+========================== */
+
+#birthdayMessage{
+
+    width:90%;
+    max-width:850px;
+
+    text-align:center;
+}
+
+#birthdayMessage h1{
+
+    margin-bottom:25px;
+
+    color:#ff2e7a;
+
+    text-shadow:
+        0 0 12px #ff8cb8,
+        0 0 30px #ff8cb8;
+}
+
+#birthdayMessage p{
+
+    margin-bottom:16px;
+
+    font-size:1.15rem;
+
+    line-height:1.9;
+
+    color:#102a4c;
+
+    text-shadow:
+        0 0 8px rgba(0,0,0,.75),
+        0 0 18px rgba(0,0,0,.45);
+}
+
+.line{
+    opacity:0;
+}
+
+.signature{
+
+    margin-top:25px;
+
+    font-size:1.3rem;
+
+    color:#fff5fa;
+
+    text-shadow:
+        0 0 10px rgba(0,0,0,.7);
+
+    opacity:0;
+}
+
+/* ==========================
+   NAME REVEAL
+========================== */
+
+#nameReveal{
+
+    font-size:5rem;
+
+    font-weight:bold;
+
+    letter-spacing:10px;
+
+    color:#ff2e7a;
+
+    text-shadow:
+        0 0 15px #ff2e7a,
+        0 0 35px #ff6aa5
+        0 0 55px #ffb6d9;
+
+    transform:scale(.7);
+
+    opacity:0;
+}
+
+/* ==========================
+   CAKE
+========================== */
+
+#cakeContainer{
+
+    text-align:center;
+}
+
+#cake{
+
+    font-size:10rem;
+
+    transform:scale(.5);
+
+    opacity:0;
+}
+
+#cakeContainer h2{
+
+    margin-top:20px;
+
+    color:#fff7f0;
+
+    text-shadow:
+        0 0 10px rgba(0,0,0,.7);
+
+    opacity:0;
+}
+
+/* ==========================
+   PHOTOS
+========================== */
+
+#photoFrame{
+
+    width:320px;
+    height:450px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 0 30px rgba(255,255,255,.35);
+}
+
+#photoDisplay{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:1;
+
+    transition:1s;
+}
+
+/* ==========================
+   FINAL
+========================== */
+
+.final-box{
+
+    text-align:center;
+
+    max-width:800px;
+}
+
+.final-box h1{
+
+    margin-bottom:20px;
+
+    color:#fff5fa;
+
+    text-shadow:
+        0 0 12px #ff8cb8,
+        0 0 25px #ff8cb8;
+}
+
+.final-box p{
+
+    font-size:1.2rem;
+
+    line-height:1.8;
+
+    color:#fff8f2;
+
+    text-shadow:
+        0 0 8px rgba(0,0,0,.75),
+        0 0 18px rgba(0,0,0,.45);
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+    .intro-content h1{
+        font-size:2rem;
+    }
+
+    .question-card h2{
+        font-size:1.5rem;
+    }
+
+    #birthdayMessage h1{
+        font-size:1.8rem;
+    }
+
+    #birthdayMessage p{
+        font-size:1rem;
+    }
+
+    #nameReveal{
+        font-size:2.6rem;
+        letter-spacing:4px;
+    }
+
+    #cake{
+        font-size:7rem;
+    }
+
+    #photoFrame{
+        width:260px;
+        height:360px;
+    }
+
+}
