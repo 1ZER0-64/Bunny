@@ -456,7 +456,7 @@ function startPhotoSlideshow(){
 
                     showFinalSection();
 
-                },5500);
+                },3500);
 
                 return;
 
@@ -469,7 +469,7 @@ function startPhotoSlideshow(){
 
         },1000);
 
-    },6000);
+    },4000);
 
 }
 
