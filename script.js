@@ -452,11 +452,13 @@ function startPhotoSlideshow(){
 
                 clearInterval(interval);
 
+                photoDisplay.style.opacity = "1";
+
                 setTimeout(() => {
 
                     showFinalSection();
 
-                },3500);
+                },5000);
 
                 return;
 
